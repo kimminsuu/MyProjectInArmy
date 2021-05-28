@@ -1,0 +1,28 @@
+ - List
+[abc]
+"a"는 정규식과 일치하는 문자 a가 있으므로 매치
+"d"는 문자가 없으므로 매치x
+하이픈으로 From-To로 표현 가능 ex)[a-c] = [abc], [0-2] = [012]
+
+ - Dot(.)
+ a.b
+ 줄바꿈(\n)을 제외한 모든 문자와 매치
+ aab(ㅇ) , a0b(ㅇ), abc(x)
+ 
+  - 반복(*)
+  ca*t
+  ct는 a가 0번 반복, cat는 a가 0번이상 반복되어매치 caaaaat도 ok
+  
+ - 반복(+)
+ ca+t
+ ct는 매치 x, cat는 a가 1번이상 반복되어 매치
+ 
+ - 반복({m,n}, ?)
+ ca{2}t
+ cat는 a가 1번만 반복되어 매치x, caat는 a가 2번 반복되어 매치
+
+정규표현식 
+import re
+p = re.compile('[a-z]+')
+m = p.match('python')
+print(m) #매치 된걸 확인 
