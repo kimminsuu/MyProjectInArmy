@@ -12,3 +12,11 @@ states = result.get_statevector()
 print(states)
 plot_bloch_multivector(states)
 
+#U-Gate
+from numpy import pi
+circuit = QuantumCircuit(1, 1)
+thet, phi, lamb = pi/4, pi/4, 0
+circuit.u(thet, phi, lamb, 0)
+circuit.measure([0], [0])
+circuit.draw()
+
